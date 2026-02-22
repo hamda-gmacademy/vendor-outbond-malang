@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Outbond Malang - Petualangan Terbaik</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        referrerpolicy="no-referrer" rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #74C69D;
+            --primary-dark: #529673;
+            --forest: #1B4332;
+            --cream: #F9F7F2;
+            --sand: #E9E3D4;
+            --white: #ffffff;
+            --forest-70: rgba(27, 67, 50, 0.7);
+            --forest-60: rgba(27, 67, 50, 0.6);
+            --forest-40: rgba(27, 67, 50, 0.4);
+            --forest-10: rgba(27, 67, 50, 0.1);
+            --forest-05: rgba(27, 67, 50, 0.05);
+            --white-90: rgba(255, 255, 255, 0.9);
+            --white-70: rgba(255, 255, 255, 0.7);
+            --white-50: rgba(255, 255, 255, 0.5);
+            --white-10: rgba(255, 255, 255, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--forest);
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Layout */
+        .page-wrap {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            white-space: nowrap;
+            background-color: var(--forest);
+            padding: 1rem 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 1024px) {
+            header {
+                padding: 1rem 5rem;
+            }
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: white;
+        }
+
+        .header-icon-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: rgba(116, 198, 157, 0.2);
+            padding: 0.5rem;
+        }
+
+        .header-icon-wrap .material-symbols-outlined {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .header-brand h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.015em;
+            color: white;
+        }
+
+        .header-nav {
+            display: none;
+            flex: 1;
+            justify-content: flex-end;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .header-nav {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .header-nav a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--white-90);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .header-nav a:hover {
+            color: var(--primary);
+        }
+
+        .menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .menu-btn {
+                display: none;
+            }
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background-color: var(--forest);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 0 1.5rem 1rem 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--white-90);
+            text-decoration: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu {
+                display: none !important;
+            }
+        }
+
+        /* Hero */
+        .hero-section {
+            position: relative;
+            width: 100%;
+        }
+
+        .hero-inner {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 600px;
+            background-image: linear-gradient(rgba(27, 67, 50, 0.5), rgba(27, 67, 50, 0.3)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1ucgTGZ2r-zNbWbCAJa65r6BwSPAcaGM0grSi-z0FlbGQKs_d6si_NeSBxUnIwx3NzQSyivujOE2l1JCG-y7ldqyJ-dtk7TcGRhdqF7-5f0i2sT9gPQ9Biq4BnOy7Tgh7sQaDgcqXcgYNlHA34rwv6cURAPS-PjkI3Z7OQj0zbJvdXjPXxTD5RwP2jjfSV4t2HALFay4ps46ZtCthdr24FkYbaqYpexFVTAArXSW5aT5I2wf__RI6T7KTNJr-RSM3ymeNuH4WFnQ");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            width: fit-content;
+            align-items: center;
+            gap: 0.5rem;
+            border-radius: 9999px;
+            background-color: rgba(116, 198, 157, 0.9);
+            padding: 0.375rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--forest);
+            margin: 0 auto;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-badge .material-symbols-outlined {
+            font-size: 0.875rem;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: white;
+        }
+
+        .hero-content p {
+            max-width: 600px;
+            font-size: 1.125rem;
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--white-90);
+            margin: 0 auto;
+        }
+
+        .hero-btns {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero-btns {
+                flex-direction: row;
+            }
+        }
+
+        .btn-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 3rem;
+            min-width: 160px;
+            border-radius: 0.5rem;
+            background-color: var(--primary);
+            padding: 0 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--forest);
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Sections */
+        .section-packages {
+            padding: 5rem 1rem;
+            background-color: var(--cream);
+        }
+
+        @media (min-width: 1024px) {
+            .section-packages {
+                padding: 5rem 5rem;
+            }
+        }
+
+        .max-w-7xl {
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            margin-bottom: 1rem;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--forest);
+        }
+
+        .section-header p {
+            max-width: 42rem;
+            margin: 0 auto;
+            font-size: 1.125rem;
+            color: var(--forest-70);
+        }
+
+        /* Packages Grid */
+        .packages-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .packages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .packages-grid {
+                grid-template-columns: repeat(3, 1fr);
+                align-items: start;
+            }
+        }
+
+        .package-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: 1rem;
+            border: 1px solid var(--forest-10);
+            background-color: var(--sand);
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .package-card .card-blob {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 6rem;
+            width: 6rem;
+            transform: translate(2rem, -2rem);
+            border-radius: 9999px;
+            background-color: var(--forest-05);
+            filter: blur(24px);
+            transition: background-color 0.3s;
+        }
+
+        .package-card:hover .card-blob {
+            background-color: rgba(116, 198, 157, 0.2);
+        }
+
+        .package-card.featured {
+            border: 2px solid var(--primary);
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 1024px) {
+            .package-card.featured {
+                transform: scale(1.05);
+                z-index: 10;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .package-card.featured:hover {
+                transform: scale(1.05) translateY(-8px);
+            }
+        }
+
+        .featured-badge {
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-radius: 0 0 0 0.5rem;
+            background-color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--forest);
+        }
+
+        .package-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--forest);
+        }
+
+        .price-row {
+            margin-top: 1rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+        }
+
+        .price-row .price {
+            font-size: 2.25rem;
+            font-weight: 900;
+            color: var(--forest);
+        }
+
+        .price-row .per {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--forest-70);
+        }
+
+        .package-desc {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--forest-60);
+        }
+
+        .feature-list {
+            margin-top: 2rem;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--forest);
+        }
+
+        .feature-list li.disabled {
+            color: var(--forest-40);
+        }
+
+        .feature-list li.disabled span {
+            text-decoration: line-through;
+        }
+
+        .feature-list .material-symbols-outlined.check {
+            color: var(--primary);
+        }
+
+        .feature-list .material-symbols-outlined.cross {
+            color: var(--forest-40);
+        }
+
+        .btn-forest {
+            margin-top: 2rem;
+            width: 100%;
+            border-radius: 0.5rem;
+            background-color: var(--forest);
+            padding: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-forest:hover {
+            background-color: rgba(27, 67, 50, 0.9);
+        }
+
+        .btn-primary-pkg {
+            margin-top: 2rem;
+            width: 100%;
+            border-radius: 0.5rem;
+            background-color: var(--primary);
+            padding: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--forest);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .btn-primary-pkg:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        /* Blog Section */
+        .section-blog {
+            background-color: white;
+            padding: 5rem 1rem;
+        }
+
+        @media (min-width: 1024px) {
+            .section-blog {
+                padding: 5rem 5rem;
+            }
+        }
+
+        .blog-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: 1rem;
+            background-color: var(--cream);
+            border: 1px solid var(--forest-05);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-img-wrap {
+            position: relative;
+            height: 12rem;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .blog-img-wrap img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .blog-card:hover .blog-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .blog-tag {
+            position: absolute;
+            bottom: 0.75rem;
+            left: 0.75rem;
+            border-radius: 0.25rem;
+            background-color: rgba(27, 67, 50, 0.9);
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            backdrop-filter: blur(4px);
+        }
+
+        .blog-body {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 1.5rem;
+        }
+
+        .blog-date {
+            margin-bottom: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+
+        .blog-body h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--forest);
+            transition: color 0.2s;
+        }
+
+        .blog-card:hover .blog-body h3 {
+            color: var(--primary);
+        }
+
+        .blog-body h3 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .blog-excerpt {
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--forest-70);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-read-more {
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        .blog-read-more a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--forest);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .blog-read-more a .material-symbols-outlined {
+            font-size: 1rem;
+        }
+
+        .blog-read-more a:hover {
+            color: var(--primary);
+        }
+
+        /* Why Us Section */
+        .section-why {
+            background-color: white;
+            padding: 5rem 1rem;
+        }
+
+        @media (min-width: 1024px) {
+            .section-why {
+                padding: 5rem 5rem;
+            }
+        }
+
+        .why-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        @media (min-width: 1024px) {
+            .why-inner {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .why-text {
+            flex: 1;
+        }
+
+        .why-text h2 {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--forest);
+            margin-bottom: 1.5rem;
+        }
+
+        .why-text>p {
+            font-size: 1.125rem;
+            color: var(--forest-70);
+            margin-bottom: 1.5rem;
+        }
+
+        .why-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding-top: 1rem;
+        }
+
+        .why-feature {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .why-icon {
+            display: flex;
+            height: 3rem;
+            width: 3rem;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.75rem;
+            background-color: rgba(116, 198, 157, 0.2);
+            color: var(--forest);
+        }
+
+        .why-feature h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 0.25rem;
+        }
+
+        .why-feature p {
+            color: var(--forest-70);
+            font-size: 0.95rem;
+        }
+
+        .why-images {
+            position: relative;
+            flex: 1;
+        }
+
+        .why-images-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .why-col-offset {
+            padding-top: 3rem;
+        }
+
+        .why-img-sm,
+        .why-img-md,
+        .why-img-lg {
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .why-img-sm {
+            height: 12rem;
+        }
+
+        .why-img-md {
+            height: 16rem;
+        }
+
+        .why-img-lg {
+            height: 16rem;
+        }
+
+        .why-img-sm2 {
+            height: 12rem;
+        }
+
+        .why-img-sm img,
+        .why-img-md img,
+        .why-img-lg img,
+        .why-img-sm2 img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .why-img-sm:hover img,
+        .why-img-md:hover img,
+        .why-img-lg:hover img {
+            transform: scale(1.1);
+        }
+
+        .why-col-offset>.why-img-sm2 {
+            height: 12rem;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+
+        .why-col-offset>.why-img-sm2 img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .why-col-offset>.why-img-sm2:hover img {
+            transform: scale(1.1);
+        }
+
+        .why-blob {
+            position: absolute;
+            bottom: -2.5rem;
+            right: -2.5rem;
+            z-index: -1;
+            height: 16rem;
+            width: 16rem;
+            border-radius: 9999px;
+            background-color: rgba(116, 198, 157, 0.2);
+            filter: blur(48px);
+        }
+
+        /* Gallery Section */
+        .section-gallery {
+            padding: 5rem 1rem;
+            background-color: var(--cream);
+        }
+
+        @media (min-width: 1024px) {
+            .section-gallery {
+                padding: 5rem 5rem;
+            }
+        }
+
+        .gallery-masonry {
+            columns: 1;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .gallery-masonry {
+                columns: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-masonry {
+                columns: 3;
+            }
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* FAB / Fixed Buttons */
+        .fab-wrap {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .fab-scroll {
+            display: flex;
+            height: 3rem;
+            width: 3rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: var(--forest);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .fab-scroll:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .fab-wa {
+            display: flex;
+            height: 3.5rem;
+            width: 3.5rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: #25D366;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+        }
+
+        .fab-wa:hover {
+            transform: translateY(-4px);
+            background-color: #128C7E;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .fab-wa i {
+            font-size: 1.875rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--forest);
+            padding: 4rem 1rem;
+            color: white;
+        }
+
+        @media (min-width: 1024px) {
+            footer {
+                padding: 4rem 5rem;
+            }
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-brand-top {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-brand-top .icon-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem;
+        }
+
+        .footer-brand-top .icon-wrap .material-symbols-outlined {
+            color: var(--primary);
+        }
+
+        .footer-brand-top h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: var(--white-70);
+        }
+
+        .footer-col h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--white-70);
+            list-style: none;
+        }
+
+        .footer-contact li .material-symbols-outlined {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .footer-links li a {
+            font-size: 0.875rem;
+            color: var(--white-70);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links li a:hover {
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            display: flex;
+            height: 2.5rem;
+            width: 2.5rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: var(--white-10);
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary);
+            color: var(--forest);
+        }
+
+        .social-icon i {
+            font-size: 1.25rem;
+        }
+
+        .footer-bottom {
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--white-50);
+        }
+
+        /* main flex grow */
+        main {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrap">
+
+        <!-- Header -->
+        <header>
+            <div class="header-brand">
+                <div class="header-icon-wrap">
+                    <span class="material-symbols-outlined">hiking</span>
+                </div>
+                <h2>Outbond Malang</h2>
+            </div>
+            <div class="header-nav">
+                <nav style="display:flex;align-items:center;gap:2rem;">
+                    <a href="#">Home</a>
+                    <a href="#packages">Packages</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#blog">Blog</a>
+                </nav>
+            </div>
+            <button class="menu-btn" aria-label="Menu"
+                onclick="document.getElementById('mobile-menu').classList.toggle('active')">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+            <nav id="mobile-menu" class="mobile-menu">
+                <a href="#" onclick="document.getElementById('mobile-menu').classList.remove('active')">Home</a>
+                <a href="#packages"
+                    onclick="document.getElementById('mobile-menu').classList.remove('active')">Packages</a>
+                <a href="#gallery"
+                    onclick="document.getElementById('mobile-menu').classList.remove('active')">Gallery</a>
+                <a href="#blog" onclick="document.getElementById('mobile-menu').classList.remove('active')">Blog</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero -->
+            <section class="hero-section">
+                <div class="hero-inner">
+                    <div class="hero-content">
+                        <span class="hero-badge">
+                            <span class="material-symbols-outlined">landscape</span>
+                            Discover Nature
+                        </span>
+                        <h1>Petualangan Outbound Terbaik di Malang</h1>
+                        <p>Bangun kekompakan tim Anda di tengah keindahan alam yang asri dan menantang. Pengalaman tak
+                            terlupakan menanti.</p>
+                        <div class="hero-btns">
+                            <button class="btn-primary">Pesan Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Packages -->
+            <section class="section-packages" id="packages">
+                <div class="max-w-7xl">
+                    <div class="section-header">
+                        <h2>Pilihan Paket Outbound</h2>
+                        <p>Pilih paket yang sesuai dengan kebutuhan tim Anda. Kami menyediakan berbagai opsi fleksibel
+                            untuk pengalaman terbaik.</p>
+                    </div>
+                    <div class="packages-grid">
+                        <!-- Paket Hemat -->
+                        <div class="package-card">
+                            <div class="card-blob"></div>
+                            <h3>Paket Hemat</h3>
+                            <div class="price-row">
+                                <span class="price">Rp 150k</span>
+                                <span class="per">/pax</span>
+                            </div>
+                            <p class="package-desc">Perfect for quick bonding sessions.</p>
+                            <ul class="feature-list">
+                                <li><span class="material-symbols-outlined check">check_circle</span> Ice Breaking &amp;
+                                    Fun Games</li>
+                                <li><span class="material-symbols-outlined check">check_circle</span> Mineral Water</li>
+                                <li><span class="material-symbols-outlined check">check_circle</span> Standard
+                                    Documentation</li>
+                                <li class="disabled"><span class="material-symbols-outlined cross">cancel</span>
+                                    <span>Lunch Box</span>
+                                </li>
+                            </ul>
+                            <button class="btn-forest">Pilih Hemat</button>
+                        </div>
+                        <!-- Paket Standard (Featured) -->
+                        <div class="package-card featured">
+                            <div class="featured-badge">Most Popular</div>
+                            <h3>Paket Standard</h3>
+                            <div class="price-row">
+                                <span class="price">Rp 250k</span>
+                                <span class="per">/pax</span>
+                            </div>
+                            <p class="package-desc">Our best seller for corporate teams.</p>
+                            <ul class="feature-list">
+                                <li><span class="material-symbols-outlined check">check_circle</span> All Basic Features
+                                </li>
+                                <li><span class="material-symbols-outlined check">check_circle</span> Team Building (2-3
+                                    hrs)</li>
+                                <li><span class="material-symbols-outlined check">check_circle</span> Lunch Box &amp;
+                                    Coffee Break</li>
+                                <li><span class="material-symbols-outlined check">check_circle</span> Certified
+                                    Facilitator</li>
+                            </ul>
+                            <button class="btn-primary-pkg">Pilih Standard</button>
+                        </div>
+                        <!-- Paket Premium -->
+                        <div class="package-card">
+                            <h3>Paket Premium</h3>
+                            <div class="price-row">
+                                <span class="price">Rp 450k</span>
+                                <span class="per">/pax</span>
+                            </div>
+                            <p class="package-desc">The ultimate full-day experience.</p>
+                            <ul class="feature-list">
+                                <li><span class="material-symbols-outlined check">check_circle</span> All Standard
+                                    Features</li>
+                                <li><span class="material-symbols-outlined check">check_circle</span> Paintball /
+                                    Rafting</li>
+                                <li><span class="material-symbols-outlined check">check_circle</span> Buffet Lunch (All
+                                    you can eat)</li>
+                                <li><span class="material-symbols-outlined check">check_circle</span> Drone
+                                    Documentation</li>
+                            </ul>
+                            <button class="btn-forest">Pilih Premium</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog -->
+            <section class="section-blog" id="blog">
+                <div class="max-w-7xl">
+                    <div class="section-header">
+                        <h2>Artikel Terbaru</h2>
+                        <p>Temukan tips dan inspirasi untuk kegiatan outbound dan wisata alam di Malang.</p>
+                    </div>
+                    <div class="blog-grid">
+                        <article class="blog-card">
+                            <div class="blog-img-wrap">
+                                <img alt="Hiking trail in Malang"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDjD2YihHJsOg73kD6rOrz6e3eKfefiMlPGff5Nw_hrjywX1YCBLizt51WHVuVlq9W4UzeqJH33nhjvDzKh6sQzPoQbUFVg0_lCfK1aCqexIp0ghXyNHkr-WFAoilNE6Wi8v6aqvcGYjcfmQIQTCPlUBdzmG8BjKBE8XFF-gSWkJuL0bQ-bGfZL5pUKtCDGzbuvT24IzAPj9RctnUdxfiC1O5gTCB6BhG_q7-wBlQ5jnw5C1DiRIS_Ptb02V48epNd29Gf7fksDIE" />
+                                <div class="blog-tag">Tips</div>
+                            </div>
+                            <div class="blog-body">
+                                <div class="blog-date">12 Okt 2023</div>
+                                <h3><a href="#">5 Lokasi Hiking Terbaik di Malang Raya</a></h3>
+                                <p class="blog-excerpt">Malang dikelilingi oleh pegunungan indah. Berikut adalah
+                                    rekomendasi jalur hiking yang cocok untuk pemula hingga profesional.</p>
+                                <div class="blog-read-more">
+                                    <a href="#">Baca Selengkapnya <span
+                                            class="material-symbols-outlined">arrow_forward</span></a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="blog-card">
+                            <div class="blog-img-wrap">
+                                <img alt="Team building activity"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAvfomOGqP2g-WqNhAxOVW9ThpFnmjbF_6smms_p5f_goegFd86e_pM1wG4DLWa7HS0rpPMNLX3_o_vsx2cJ7DMV7uTnbJMLrdoUKK--6lZR3rVUyldoaHqUVbuk_S9dmRSPCAxsrTz4bRXmMA7oIwwIiOb9qYzwj1KcXsS8ZTCu7B1HbqkPrUExvuiFimbAG46eb6jNtYlZsZKbdzZebsS5zEq2RPrGnl31DKYII7gXsRXZsdTx4wbpTAjUJUK1i8ivtUgIngUDk" />
+                                <div class="blog-tag">Team Building</div>
+                            </div>
+                            <div class="blog-body">
+                                <div class="blog-date">28 Sep 2023</div>
+                                <h3><a href="#">Manfaat Outbound untuk Kinerja Tim Kantor</a></h3>
+                                <p class="blog-excerpt">Mengapa perusahaan besar rutin mengadakan outbound? Temukan
+                                    manfaat psikologis dan produktivitas di balik kegiatan ini.</p>
+                                <div class="blog-read-more">
+                                    <a href="#">Baca Selengkapnya <span
+                                            class="material-symbols-outlined">arrow_forward</span></a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="blog-card">
+                            <div class="blog-img-wrap">
+                                <img alt="Camping gear"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrE7LYcylr5wOapkXdkoNdRXX8OwWKvvahW6HwvRCTQw95fNe-rErwBpM_MPkyU40DapTZR4ScjVQ3BghcbY9Jay6XveayVk8gaxHdrD3qnG3yjWJPijn63_GtcAM2LdjiDshKOdx1FBm-2ep_CfaZcwoFZMjI5S7tSgcuh1TMzP_GsKCkdh8RcVpUAexcRcHEljuqyOf_wlaeGBgA83XeECzOikpcvQi_4d5o0o6M9NVZkB8MQ16VFecPRWLrNAsJT1yOPlng8gs" />
+                                <div class="blog-tag">Panduan</div>
+                            </div>
+                            <div class="blog-body">
+                                <div class="blog-date">15 Sep 2023</div>
+                                <h3><a href="#">Perlengkapan Wajib Saat Camping di Bromo</a></h3>
+                                <p class="blog-excerpt">Jangan sampai kedinginan! Simak daftar perlengkapan wajib yang
+                                    harus Anda bawa saat berkemah di area Gunung Bromo.</p>
+                                <div class="blog-read-more">
+                                    <a href="#">Baca Selengkapnya <span
+                                            class="material-symbols-outlined">arrow_forward</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Us -->
+            <section class="section-why">
+                <div class="max-w-7xl">
+                    <div class="why-inner">
+                        <div class="why-text">
+                            <h2>Kenapa Memilih Kami?</h2>
+                            <p>Kami tidak hanya menyediakan tempat, tapi sebuah pengalaman yang dirancang untuk
+                                mempererat hubungan antar anggota tim Anda.</p>
+                            <div class="why-features">
+                                <div class="why-feature">
+                                    <div class="why-icon">
+                                        <span class="material-symbols-outlined">forest</span>
+                                    </div>
+                                    <div>
+                                        <h3>Lokasi Asri &amp; Privat</h3>
+                                        <p>Terletak di kaki gunung dengan udara sejuk dan area privat yang luas.</p>
+                                    </div>
+                                </div>
+                                <div class="why-feature">
+                                    <div class="why-icon">
+                                        <span class="material-symbols-outlined">groups</span>
+                                    </div>
+                                    <div>
+                                        <h3>Fasilitator Berpengalaman</h3>
+                                        <p>Tim kami bersertifikat BNSP dan ahli dalam menangani dinamika kelompok.</p>
+                                    </div>
+                                </div>
+                                <div class="why-feature">
+                                    <div class="why-icon">
+                                        <span class="material-symbols-outlined">savings</span>
+                                    </div>
+                                    <div>
+                                        <h3>Harga Kompetitif</h3>
+                                        <p>Paket fleksibel yang dapat disesuaikan dengan budget perusahaan Anda.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="why-images">
+                            <div class="why-images-grid">
+                                <div style="display:flex;flex-direction:column;gap:1rem;padding-top:3rem;">
+                                    <div class="why-img-sm">
+                                        <img alt="Team building ropes"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ7MfXigVr7hyfwuzQNDxS8ZzD57OblylRct6hb3etT6FGg5YukBgBZlsEmjCYZY1TeS9GAdU0_iMdRq80cS43gMD5KetxlDwJCuYwZdQTZyqaT_FXYtTB3qIoBP9uesNDkfTFJ1tgFt9HC1fjP5pIXgHNLBFroO3HDyLHn_NKBm0aXJz-y63NTj5Vjn3ypv3INuxju6_BTA6HIG7ZItqdC8g1p3CE8NvhaizK43QIrSYpdGmc45Q_BAmONvGDHf3ujjOWzuuC2bM" />
+                                    </div>
+                                    <div class="why-img-md">
+                                        <img alt="Group laughing"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDImSEZe7it3K8V4WKDnZc1q8A1rszrq6usjAh3WfA2rqb0IP2odrh3XreElXTLtdp1BXRci0wW4jQ__Hk05etaDbxwBvjYe1_Mbhti5HoEYtMlVlw5uO_sKEcEMQPH6ZoCwjSSkcefWC2TEX10CVPsQ5t3sAq-1vASf_WKmL89EDGLgKWWGifMIjrMjbeP_unzZDH1WQTKqFxYizyDvwTd1X_1WJjMDPRtgEIODPfJLsHCu8hIT7hrOJ4HXovMLBB0g8gkZ4AS4AQ" />
+                                    </div>
+                                </div>
+                                <div style="display:flex;flex-direction:column;gap:1rem;">
+                                    <div class="why-img-lg">
+                                        <img alt="Rafting adventure"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD21Ow0fHkZGFPnN0slRSxDKWpf-jZKL4NY-nY21_D1q9uWTTMeaOwKQqg6ayFo0da5puxa4ZPuS2D1YYTxuXJkhuVVp9lUhj-6XDym_BM7XqS3jsiG5CJBOjx2sZ0eWqGGMzLCqTL7T3TvK8hvQpb9Yp_t6y8bCV_pGGdlTVSU6UU9asv7IxvQTiXDEmbKk--QJY-rccCJptxFSTC9G2_Hc1dzDjpX8VbO73XqFkBHG3XiP3iuzNEK3bNO-gp6n04SPCgHL9lYGh4" />
+                                    </div>
+                                    <div class="why-img-sm">
+                                        <img alt="Campfire night"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDilejp7nOs2n2uklMoYYMYEdyBjF6zgRJrWgPof-XDhacaSAwj9R5FoQagXdTKhCYFzba4x4_CcmxNFlGYhKEN06iBRZZgjSm1xSeWb6SS3hodw-0OnJ5jqQXLFuzFaXiAZnnI9nq4JQ6rsyKHlXJJQtwJAzB9EICVpxUWkFdPNqkRPXqU2oXSONhvFaXzpbrtdBnSegMIryPo_vo0i6J_-80fAZrgSLIC2D8zvr_YWrEaWAy4QwEnj3-xAys7zl4BM_Y8StTfr8M" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="why-blob"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery -->
+            <section class="section-gallery" id="gallery">
+                <div class="max-w-7xl" style="text-align:center;">
+                    <h2
+                        style="margin-bottom:1rem;font-size:clamp(1.75rem,4vw,2.25rem);font-weight:700;letter-spacing:-0.02em;color:var(--forest);">
+                        Galeri Keseruan</h2>
+                    <p style="margin-bottom:3rem;font-size:1.125rem;color:var(--forest-70);">Momen-momen terbaik dari
+                        klien kami sebelumnya.</p>
+                    <div class="gallery-masonry">
+                        <div class="gallery-item">
+                            <img alt="Corporate group photo"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBALa1jAiCFlWhT1eD9XVhMJMU5x6z5RxXijSCahAk3CZT0TDennumr8qmxOwGP26lUYtPTFSLcucg3c4p2KIEM3bfKqYS-4uNjN4NkkxRLYfWMqJ_ROuBjHOLLG3lMYVod71eOFHO2_Ndnu__6jdf0goNPaKr1v-BQ0ykfhW3z1rT3405SWyGTs68Bzc1baB_UWXYLblLCLQX39S97g9ktjAXFwSx_1Z8Gg9oLEyIkLW3rN2AYKQ_XVnysJoBKpy4IngS60puMALQ" />
+                        </div>
+                        <div class="gallery-item">
+                            <img alt="Zipline adventure"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZOI-efAcRu_VJb6fcdig8M2uYBc4cT9lsCQ_Uf1OXo3Q1qK76nHcio7dr3bRRPz-1m1rTUdNQA5_K59GmJvDw3YbdhNHWRUp28pFejOiGdW9TsVkzlztPdrAlV2IwPjIy8BSoqSISEjUdB-APkTkv6ePkfgJMjXDGP4G0mIEH0f3KT5aTnrXjuZsJfiPWQUqWg3rLRnw-yJ5Nh3L0f5flMJXB6yqviQriYaf_iFCIuUnFD1ZcYucgCE2KOsUCy9PGcz0hR4X4qGA" />
+                        </div>
+                        <div class="gallery-item">
+                            <img alt="Puzzle solving"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZVLgbqc-SGl4dxPlobFtHI7Dxzw-QebMqcYK8qtXIRKk-8_4bIMOduP3m0YVArEmiByK_2oJtqwPQaIUgoRr8qJQ633AH4DbRlTKopEm32s-7kN-9OMRJ-XEq4K3vVW_zeVqK4E0Xut3axOyOUPc2mLluBEV8a7lQ8ibtw6rlqe0IhWwCCyxJ2oeMSkri-RCiwmbFbYyXcI5gIXUNSw22ZhGA7xpp3WSDQ2MiahqoDnKGl4x_4qV4subn2qbJ9kij6mKRLLu-epE" />
+                        </div>
+                        <div class="gallery-item">
+                            <img alt="Camping morning"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSHa1X9viXS6mzb1YRCefZlYeifpxvjS_lrAATE03CG0dB_W2ENERFVxNwLT3fVo4fDYy29WqSNQGSypq7mVmppxoERC7a0wJ4vB1WGBnvyy1zxWX4NIfOgxyOjpWW8VuEfjbLjUc13GxPOuKcFHEimzYKiokP2kSrVIcSsQVwerXWUqp3nhaH7t0ZWNJC1KEDnqJ5Oy_cznj-ESezRHEeSuZ7b-O_UOtJoJAtsXWz_36ewDOW0ZhAQBKCbM8f2-_Fu_LoU-FQwWs" />
+                        </div>
+                        <div class="gallery-item">
+                            <img alt="Rafting action" src="assets/rafting.jpg" />
+                        </div>
+                        <div class="gallery-item">
+                            <img alt="Paintball game"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3lmj8NHmYPAKIXvWLq2AGXS-AzaYSzCX-aQzag6JZ7ZnS2l-JEcoznKf01yfVjOK6B_5hPqqnGIeG1u5_pjD-dBLc65F4XxVl9Cz3Wosu7Udevn05zAhY9U90EoF8eKuYADLXwPcz8UZT6jzeqVRf3Ttd-0sR_oP_7OI-Dp3Hw7xpD8X6svkzooBsYvAezmgQ48nF62mhRLHJnYHDVy_6ME3XdVIOU42s7p7ghcu54rW6wkYFDbrQLXoZginIy5R5J1OP_yzhgyw" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FAB -->
+        <div class="fab-wrap">
+            <button class="fab-scroll" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                <span class="material-symbols-outlined">arrow_upward</span>
+            </button>
+            <a class="fab-wa" href="#" aria-label="Contact WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer id="contact">
+            <div class="max-w-7xl">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div class="footer-brand-top">
+                            <div class="icon-wrap">
+                                <span class="material-symbols-outlined">hiking</span>
+                            </div>
+                            <h2>Outbond Malang</h2>
+                        </div>
+                        <p>Partner terbaik untuk kegiatan outbound, gathering, dan team building perusahaan Anda di
+                            Malang Raya.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Contact Us</h3>
+                        <ul class="footer-contact">
+                            <li>
+                                <span class="material-symbols-outlined">location_on</span>
+                                <span>Jl. Raya Tlogomas No. 246,<br />Malang, Jawa Timur 65144</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">phone</span>
+                                <span>+62 812 3456 7890</span>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">mail</span>
+                                <span>hello@outbondmalang.id</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#packages">Our Packages</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                            <li><a href="#">Terms &amp; Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons">
+                            <a class="social-icon" href="#" aria-label="Instagram"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                            <a class="social-icon" href="#" aria-label="Facebook"><i
+                                    class="fa-brands fa-facebook-f"></i></a>
+                            <a class="social-icon" href="#" aria-label="LinkedIn"><i
+                                    class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2023 Outbond Malang. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>

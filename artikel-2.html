@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    <title>Manfaat Outbound - Outbond Malang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #74C69D;
+            --primary-dark: #529673;
+            --forest: #1B4332;
+            --cream: #F9F7F2;
+            --white: #ffffff;
+            --forest-70: rgba(27, 67, 50, 0.7);
+            --white-90: rgba(255, 255, 255, 0.9);
+            --white-70: rgba(255, 255, 255, 0.7);
+            --white-50: rgba(255, 255, 255, 0.5);
+        }
+
+
+        .article-content {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 12pt;
+            color: var(--forest);
+        }
+
+        .article-content p,
+        .article-content li {
+            margin-top: auto;
+            margin-bottom: 8pt;
+            line-height: normal;
+        }
+
+        .article-content h2,
+        .article-content h3,
+        .article-content h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-top: 1.5rem;
+            margin-bottom: 8pt;
+            font-size: unset;
+            line-height: 1.2;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--forest);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--forest);
+            padding: 1rem 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 1024px) {
+            header {
+                padding: 1rem 5rem;
+            }
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: white;
+        }
+
+        .header-icon-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: rgba(116, 198, 157, 0.2);
+            padding: 0.5rem;
+        }
+
+        .header-icon-wrap .material-symbols-outlined {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .header-brand h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .header-nav {
+            display: none;
+            flex: 1;
+            justify-content: flex-end;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .header-nav {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .header-nav a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--white-90);
+            text-decoration: none;
+        }
+
+        .header-nav a:hover {
+            color: var(--primary);
+        }
+
+        footer {
+            background-color: var(--forest);
+            padding: 4rem 1rem;
+            color: white;
+        }
+
+        @media (min-width: 1024px) {
+            footer {
+                padding: 4rem 5rem;
+            }
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .footer-brand-top {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand-top .icon-wrap {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem;
+            border-radius: 9999px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links li a {
+            color: var(--white-70);
+            text-decoration: none;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--white-50);
+        }
+
+        /* FAB / Fixed Buttons */
+        .fab-wrap {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .fab-scroll {
+            display: flex;
+            height: 3rem;
+            width: 3rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: var(--forest);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .fab-scroll:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .fab-wa {
+            display: flex;
+            height: 3.5rem;
+            width: 3.5rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: #25D366;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+        }
+
+        .fab-wa:hover {
+            transform: translateY(-4px);
+            background-color: #128C7E;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .fab-wa i {
+            font-size: 1.875rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: var(--white-70);
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--white-70);
+            list-style: none;
+        }
+
+        .footer-contact li .material-symbols-outlined {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary);
+            color: var(--forest);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="header-brand" style="text-decoration: none;">
+            <div class="header-icon-wrap"><span class="material-symbols-outlined">hiking</span></div>
+            <h2>Outbond Malang</h2>
+        </a>
+        <div class="header-nav">
+            <nav style="display:flex;align-items:center;gap:2rem;">
+                <a href="index.html">Home</a>
+                <a href="index.html#packages">Packages</a>
+                <a href="index.html#gallery">Gallery</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <main style="background-color: white; padding: 5rem 1rem; min-height: 80vh;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <a href="blog.html"
+                style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--forest-70); text-decoration: none; margin-bottom: 2rem; font-weight: 600;">
+                <span class="material-symbols-outlined">arrow_back</span> Kembali ke Blog
+            </a>
+            <h1
+                style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: var(--forest); margin-bottom: 1rem; line-height: 1.2;">
+                Manfaat Outbound untuk Kinerja Tim Kantor</h1>
+            <div style="display: flex; gap: 1rem; color: var(--forest-70); margin-bottom: 2rem; font-size: 0.875rem;">
+                <span>28 Sep 2023</span>
+                <span
+                    style="background-color: rgba(116, 198, 157, 0.2); color: var(--primary-dark); padding: 0 0.5rem; border-radius: 0.25rem; font-weight: 600;">Team
+                    Building</span>
+            </div>
+
+            <figure style="margin: 0; margin-bottom: 2rem;">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAvfomOGqP2g-WqNhAxOVW9ThpFnmjbF_6smms_p5f_goegFd86e_pM1wG4DLWa7HS0rpPMNLX3_o_vsx2cJ7DMV7uTnbJMLrdoUKK--6lZR3rVUyldoaHqUVbuk_S9dmRSPCAxsrTz4bRXmMA7oIwwIiOb9qYzwj1KcXsS8ZTCu7B1HbqkPrUExvuiFimbAG46eb6jNtYlZsZKbdzZebsS5zEq2RPrGnl31DKYII7gXsRXZsdTx4wbpTAjUJUK1i8ivtUgIngUDk"
+                    style="width: 100%; border-radius: 1rem;  object-fit: cover; height: 400px;" alt="Team Building" />
+                <figcaption
+                    style="text-align: center; font-style: italic; color: var(--forest-70); margin-top: 0.5rem; font-family: 'Open Sans', sans-serif; font-size: 10pt;">
+                    Ilustrasi Team Building</figcaption>
+            </figure>
+
+
+            <!-- TOC -->
+            <div class="toc-container"
+                style="background-color: white; border: 1px solid var(--forest-70); border-radius: 0.5rem; padding: 1rem; margin-bottom: 2rem; margin-top: 1.5rem; font-family: 'Open Sans', sans-serif;">
+                <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;"
+                    onclick="toggleTOC()">
+                    <span
+                        style="font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.125rem;">Daftar
+                        Isi</span>
+                    <span id="toc-toggle-icon" class="material-symbols-outlined">expand_less</span>
+                </div>
+                <div id="toc-content" style="margin-top: 1rem; display: block;">
+                    <ul id="toc-list" style="list-style-type: none; padding-left: 0; margin: 0; font-size: 0.875rem;">
+                    </ul>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <h2 style="font-size: 1.5rem;">Pendahuluan</h2>
+                <p style="margin-bottom: 1.5rem;">Mengapa perusahaan besar rutin mengadakan outbound? Temukan manfaat
+                    psikologis dan produktivitas di balik kegiatan ini bagi setiap karyawan.</p>
+
+                <div
+                    style="background-color: #f9f7f2; padding: 1rem; border-left: 4px solid var(--primary); margin: 1.5rem 0;">
+                    <h4 style="font-size: 1.125rem;">Baca Juga:</h4>
+                    <ul
+                        style="list-style: none; padding-left: 0; margin: 0; font-family: 'Open Sans', sans-serif; font-size: 12pt;">
+
+                        <li style="margin-bottom: 0.5rem;"><a href="artikel-1.html"
+                                style="color: var(--primary-dark); font-weight: 600; text-decoration: none;">&raquo; 5
+                                Lokasi Hiking Terbaik di Malang Raya</a></li>
+                        <li><a href="artikel-3.html"
+                                style="color: var(--primary-dark); font-weight: 600; text-decoration: none;">&raquo;
+                                Perlengkapan Wajib Saat Camping di Bromo</a></li>
+
+                    </ul>
+                </div>
+
+                <h2 style="font-size: 1.5rem;">Pembahasan Utama</h2>
+                <h3 style="font-size: 1.25rem;">Mengenal Lebih Jauh</h3>
+                <p style="margin-bottom: 1.5rem;">Outbound bukan sekadar liburan biasa. Lebih dari itu, outbound
+                    membangun kekompakan tim, meningkatkan komunikasi antar staf, serta melepas stres dari rutinitas
+                    kantor. Melalui games interaktif dan dinamika kelompok, setiap anggota belajar saling percaya.</p>
+
+                <blockquote
+                    style="font-style: italic; font-size: 1.25rem; border-left: 4px solid var(--primary); padding-left: 1rem; margin: 2rem 0; color: var(--forest-70); font-family: 'Open Sans', sans-serif;">
+                    "Jadikan setiap perjalanan sebagai pengalaman berharga yang mengembangkan diri kita."
+                </blockquote>
+
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" alt="Promo Interaktif"
+                        style="max-width: 100%; border-radius: 0.5rem; height: 150px; object-fit: cover; width: 100%;" />
+                </div>
+
+                <figure style="margin: 0; margin-bottom: 2rem;">
+                    <img src="assets/rafting.jpg"
+                        style="width: 100%; border-radius: 1rem; object-fit: cover; height: 300px;"
+                        alt="Aktivitas Pelengkap"
+                        onerror="this.src='https://images.unsplash.com/photo-1544365558-35aa4afcf11f?auto=format&fit=crop&q=80&w=800'" />
+                    <figcaption
+                        style="text-align: center; font-style: italic; color: var(--forest-70); margin-top: 0.5rem; font-family: 'Open Sans', sans-serif; font-size: 10pt;">
+                        Rafting bisa menjadi pelengkap kegiatan Anda.</figcaption>
+                </figure>
+
+                <h3 style="font-size: 1.25rem;">Langkah Selanjutnya</h3>
+                <p>Jadikan outbound agenda rutin perusahaan Anda untuk memastikan semangat kerja yang lebih baik dan
+                    sinergi yang luar biasa.</p>
+
+                <h2 style="font-size: 1.5rem;">Kesimpulan</h2>
+                <p>Singkatnya, berbagai informasi di atas dapat Anda jadikan pertimbangan yang matang. Persiapkan
+                    perencanaan Anda dan raih pengalaman terbaik di Malang Raya.</p>
+
+                <h2 style="font-size: 1.5rem;">FAQ (Pertanyaan yang Sering Diajukan)</h2>
+                <h4 style="font-size: 1.125rem;">Bagaimana cara memesan paket?</h4>
+                <p>Klik tombol WhatsApp di bagian bawah, kami akan segera merespon semua kebutuhan Anda.</p>
+                <h4 style="font-size: 1.125rem;">Apakah fasilitas lengkap?</h4>
+                <p>Ya, kami menyediakan layanan all-in untuk kenyamanan peserta.</p>
+
+                <div style="margin: 2rem 0; text-align: center;">
+                    <img src="https://media.giphy.com/media/xT0xezQGU5x3CEQaMo/giphy.gif" alt="Promo Spesial"
+                        style="max-width: 100%; border-radius: 0.5rem; height: 150px; object-fit: cover; width: 100%;" />
+                </div>
+            </div>
+
+            <!-- Profil Penulis -->
+            <div
+                style="display: flex; align-items: center; gap: 1rem; padding: 1.5rem; background-color: white; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 3rem; margin-bottom: 2rem;">
+                <img src="https://i.pravatar.cc/150?u=Ayu Lestari" alt="Author"
+                    style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;" />
+                <div>
+                    <h4
+                        style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1.125rem; margin-bottom: 0.25rem;">
+                        Penulis: Aisyah Hamda</h4>
+                    <p style="font-size: 0.875rem; color: var(--forest-70); font-family: 'Open Sans', sans-serif;">Pakar
+                        aktivitas outdoor dan tim kreatif Outbond Malang.</p>
+                </div>
+            </div>
+
+            <!-- Tombol Share -->
+            <div style="margin-bottom: 3rem; font-family: 'Plus Jakarta Sans', sans-serif;">
+                <h4 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 1rem;">Bagikan artikel ini:</h4>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="javascript:void(0)"
+                        onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(window.location.href))"
+                        style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background-color: #25D366; color: white; text-decoration: none;"><i
+                            class="fa-brands fa-whatsapp"></i></a>
+                    <a href="javascript:void(0)"
+                        onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href))"
+                        style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background-color: #1877F2; color: white; text-decoration: none;"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="javascript:void(0)"
+                        onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href))"
+                        style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background-color: #1DA1F2; color: white; text-decoration: none;"><i
+                            class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <!-- 3 Artikel Terkait -->
+            <div style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 2rem;">
+                <h2
+                    style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">
+                    Artikel Terkait</h2>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; font-family: 'Plus Jakarta Sans', sans-serif;">
+
+                    <div
+                        style="background-color: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
+                        <img src="https://images.unsplash.com/photo-1544365558-35aa4afcf11f?w=400" alt="Outbound"
+                            style="width: 100%; height: 150px; object-fit: cover;" />
+                        <div style="padding: 1rem; flex-grow: 1; display: flex; flex-direction: column;">
+                            <h3
+                                style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--forest);">
+                                Manfaat Outbound</h3>
+                            <p style="font-size: 0.875rem; color: var(--forest-70); margin-bottom: 1rem; flex-grow: 1;">
+                                Temukan manfaat psikologis dan produktivitas di balik kegiatan ini.</p>
+                            <a href="artikel-2.html"
+                                style="background-color: var(--primary); color: white; text-align: center; padding: 0.5rem; border-radius: 0.5rem; text-decoration: none; font-size: 0.875rem; font-weight: 600;">Baca
+                                Selengkapnya</a>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background-color: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
+                        <img src="https://images.unsplash.com/photo-1504280390227-3eb97c55bf74?w=400" alt="Camping"
+                            style="width: 100%; height: 150px; object-fit: cover;" />
+                        <div style="padding: 1rem; flex-grow: 1; display: flex; flex-direction: column;">
+                            <h3
+                                style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--forest);">
+                                Perlengkapan Camping</h3>
+                            <p style="font-size: 0.875rem; color: var(--forest-70); margin-bottom: 1rem; flex-grow: 1;">
+                                Siapkan perlengkapan ini agar tak kedinginan di Bromo.</p>
+                            <a href="artikel-3.html"
+                                style="background-color: var(--primary); color: white; text-align: center; padding: 0.5rem; border-radius: 0.5rem; text-decoration: none; font-size: 0.875rem; font-weight: 600;">Baca
+                                Selengkapnya</a>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background-color: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
+                        <img src="https://images.unsplash.com/photo-1533692328991-08159ff19fca?w=400" alt="Tips"
+                            style="width: 100%; height: 150px; object-fit: cover;" />
+                        <div style="padding: 1rem; flex-grow: 1; display: flex; flex-direction: column;">
+                            <h3
+                                style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--forest);">
+                                Lokasi Hiking Terbaik</h3>
+                            <p style="font-size: 0.875rem; color: var(--forest-70); margin-bottom: 1rem; flex-grow: 1;">
+                                5 rekomendasi lokasi hiking terbaik di Malang.</p>
+                            <a href="artikel-1.html"
+                                style="background-color: var(--primary); color: white; text-align: center; padding: 0.5rem; border-radius: 0.5rem; text-decoration: none; font-size: 0.875rem; font-weight: 600;">Baca
+                                Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FAB -->
+    <div class="fab-wrap">
+        <button class="fab-scroll" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+            <span class="material-symbols-outlined">arrow_upward</span>
+        </button>
+        <a class="fab-wa" href="https://wa.me/6281234567890" target="_blank" aria-label="Contact WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="max-w-7xl" style="max-width: 80rem; margin: 0 auto;">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-top">
+                        <div class="icon-wrap">
+                            <span class="material-symbols-outlined">hiking</span>
+                        </div>
+                        <h2>Outbond Malang</h2>
+                    </div>
+                    <p>Partner terbaik untuk kegiatan outbound, gathering, dan team building perusahaan Anda di Malang
+                        Raya.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <span class="material-symbols-outlined">location_on</span>
+                            <span>Jl. Raya Tlogomas No. 246,<br />Malang, Jawa Timur 65144</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">phone</span>
+                            <span>+62 812 3456 7890</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">mail</span>
+                            <span>hello@outbondmalang.id</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links" style="padding:0;">
+                        <li><a href="index.html">About Us</a></li>
+                        <li><a href="index.html#packages">Our Packages</a></li>
+                        <li><a href="index.html#gallery">Gallery</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a class="social-icon" href="#" aria-label="Instagram"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a class="social-icon" href="#" aria-label="Facebook"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a class="social-icon" href="#" aria-label="LinkedIn"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 Outbond Malang. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTOC() {
+            var content = document.getElementById('toc-content');
+            var icon = document.getElementById('toc-toggle-icon');
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                icon.innerText = 'expand_less';
+            } else {
+                content.style.display = 'none';
+                icon.innerText = 'expand_more';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var tocList = document.getElementById('toc-list');
+            var headings = document.querySelectorAll('.article-content h2, .article-content h3');
+
+            headings.forEach(function (heading, index) {
+                heading.id = 'heading-' + index;
+                var li = document.createElement('li');
+                li.style.marginBottom = '0.75rem';
+                if (heading.tagName.toLowerCase() === 'h3') {
+                    li.style.paddingLeft = '1.5rem';
+                }
+
+                var a = document.createElement('a');
+                a.href = '#' + heading.id;
+                a.innerText = heading.innerText;
+                a.style.textDecoration = 'none';
+                a.style.color = 'var(--forest)';
+                a.style.fontWeight = '500';
+
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
